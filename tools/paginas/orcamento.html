@@ -1,0 +1,71 @@
+Orçamento | Diva Tattoo
+Conte sua ideia, o local e o tamanho da tattoo. A mensagem sai pronta para a Diva.
+orcamento.html
+<section class="pagina-topo">
+  <div class="wrap">
+    <p class="rotulo">Orçamento</p>
+    <h1>Pedir orçamento</h1>
+    <p>Preencha o que souber. No fim, a mensagem sai pronta e você manda junto as fotos de referência.</p>
+  </div>
+</section>
+<section style="padding-bottom:80px">
+  <div class="wrap">
+    <form class="form" data-orcamento novalidate>
+      <div class="campo">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="given-name" required>
+      </div>
+
+      <div class="campo">
+        <label for="ideia">A ideia</label>
+        <textarea id="ideia" name="ideia" placeholder="O que você quer tatuar: escrita, desenho, símbolo…" required></textarea>
+      </div>
+
+      <fieldset class="campo">
+        <legend>Estilo</legend>
+        <div class="opcoes">
+          <label><input type="radio" name="estilo" value="Pontilhismo">Pontilhismo</label>
+          <label><input type="radio" name="estilo" value="Fineline">Fineline</label>
+          <label><input type="radio" name="estilo" value="Blackwork">Blackwork</label>
+          <label><input type="radio" name="estilo" value="Old School">Old School</label>
+        </div>
+        <div class="opcoes opcoes--2">
+          <label><input type="radio" name="estilo" value="Não sei, quero sugestão">Não sei, quero sugestão</label>
+        </div>
+      </fieldset>
+
+      <div class="campo">
+        <label for="local">Local do corpo</label>
+        <input type="text" id="local" name="local" placeholder="Antebraço, costela, panturrilha…">
+      </div>
+
+      <fieldset class="campo">
+        <legend>Tamanho aproximado (cm)</legend>
+        <div class="medidas">
+          <input type="number" name="largura" inputmode="decimal" min="1" max="80" placeholder="Largura" aria-label="Largura em centímetros">
+          <input type="number" name="altura" inputmode="decimal" min="1" max="80" placeholder="Altura" aria-label="Altura em centímetros">
+        </div>
+        <small>Para medir: cole um papel no local, desenhe o contorno do espaço que a tattoo pode ocupar e meça com régua. <span class="a-confirmar">Conferir com o destaque "medindo sua arte" dela.</span></small>
+      </fieldset>
+
+      <fieldset class="campo">
+        <legend>É sua primeira tattoo?</legend>
+        <div class="opcoes opcoes--2">
+          <label><input type="radio" name="primeira" value="Sim">Sim</label>
+          <label><input type="radio" name="primeira" value="Não">Não</label>
+        </div>
+      </fieldset>
+
+      <div class="campo">
+        <label for="dias">Melhores dias e horários</label>
+        <input type="text" id="dias" name="dias" placeholder="Ex.: sábados de manhã">
+      </div>
+
+      <div>
+        <button class="btn" type="submit">Montar mensagem</button>
+        <p class="aviso" role="status" aria-live="polite" style="margin-top:16px"></p>
+        <small style="color:var(--cinza)" class="a-confirmar">Enquanto o WhatsApp não estiver configurado, a mensagem é copiada e a conversa do Instagram abre.</small>
+      </div>
+    </form>
+  </div>
+</section>
