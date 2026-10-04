@@ -29,7 +29,7 @@ Campos sem dado aparecem como `<span class="a-preencher">a preencher</span>`.
 
 1. Endereço e horários de atendimento (Início › Onde fica).
 2. WhatsApp com DDI em `assets/js/main.js` (`CONFIG.whatsapp`). Sem ele, o orçamento copia a mensagem e abre a DM do Instagram.
-3. Nome dela e foto em boa resolução. A abertura usa a foto do perfil (150 px, `_ref/foto-dela-150.jpg`) ampliada e em duotone roxo no `processar.py`; trocar pelo original quando vier.
+3. Nome dela e foto em boa resolução. A abertura usa `_ref/foto-dela-hd.webp` (versão melhorada que o usuário mandou).
 4. Textos de cuidados, sinal e medição estão genéricos: trocar pelos dela quando vierem.
 5. Classificação de estilo de cada tattoo (feita por mim, em `tools/processar.py`).
 6. Plataforma 9¾ tem legenda de story por cima: pedir o original. Escudo 1910 (marca de clube): ok mostrar?
