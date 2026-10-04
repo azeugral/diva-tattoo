@@ -18,7 +18,7 @@ A cada deploy que mude CSS/JS, subir `V` em `tools/montar_paginas.py` e remontar
 ## Identidade (v2, 04/10)
 
 Tirada dos posts dela: preto `#0a080d` com roxo forte `#9b4dff` (claro `#c9a2ff`), gótico e pincel.
-- Logo gerado por `python tools/gerar_logo.py` (coroa + "Diva" em UnifrakturCook com degradê + "Tattoo" em Kaushan Script + brilhos ✦). Fontes em `../_ref/fontes`. Também gera favicon, apple-touch e `og.jpg`.
+- Logo gerado por `python tools/gerar_logo.py` ("Diva" em UnifrakturCook com degradê + "Tattoo" em Kaushan Script + brilhos ✦). Fontes em `../_ref/fontes`. Também gera favicon, apple-touch e `og.jpg`.
 - Site: títulos em Grenze Gotisch, frases de destaque em Kaushan Script, texto e rótulos em IBM Plex Sans.
 - Grão em todo o fundo, brilho roxo nos cantos, ✦ como separador e foto da abertura com borda rasgada roxa.
 - O marcador de estação continua azul (é a Linha 1-Azul de verdade).
@@ -29,7 +29,7 @@ Campos sem dado aparecem como `<span class="a-preencher">a preencher</span>`.
 
 1. Endereço e horários de atendimento (Início › Onde fica).
 2. WhatsApp com DDI em `assets/js/main.js` (`CONFIG.whatsapp`). Sem ele, o orçamento copia a mensagem e abre a DM do Instagram.
-3. Nome dela e foto em boa resolução (a recebida tem 100×100 px).
+3. Nome dela e foto em boa resolução. A abertura usa a foto do perfil (150 px, `_ref/foto-dela-150.jpg`) ampliada e em duotone roxo no `processar.py`; trocar pelo original quando vier.
 4. Textos de cuidados, sinal e medição estão genéricos: trocar pelos dela quando vierem.
 5. Classificação de estilo de cada tattoo (feita por mim, em `tools/processar.py`).
 6. Plataforma 9¾ tem legenda de story por cima: pedir o original. Escudo 1910 (marca de clube): ok mostrar?

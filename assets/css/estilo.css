@@ -112,13 +112,12 @@ h3 { font-size: 24px; font-weight: 700; }
 /* ---------- abertura ---------- */
 .abertura { padding: clamp(40px, 7vw, 88px) 0 clamp(56px, 8vw, 100px); }
 .abertura__in { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-.abertura h1 { margin: 22px 0 0; }
-.abertura h1 img { width: min(100%, 540px); filter: drop-shadow(0 0 40px rgba(155, 77, 255, .28)); }
-.estilos-lista { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 0; margin: 28px 0 0; font: 500 14px/1.4 var(--rotulo); text-transform: uppercase; letter-spacing: .08em; }
+.abertura h1 { margin: 26px 0 0; font-size: clamp(46px, 7.4vw, 96px); line-height: .95; max-width: 11ch; text-wrap: balance; }
+.estilos-lista { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 0; margin: 0 0 34px; font: 500 14px/1.4 var(--rotulo); text-transform: uppercase; letter-spacing: .08em; }
 .estilos-lista li + li::before { content: "✦"; margin-right: 18px; color: var(--roxo); }
-.abertura__frase { font: 400 clamp(24px, 3vw, 32px)/1.25 var(--script); color: var(--roxo-claro); margin: 26px 0 34px; max-width: 22ch; transform: rotate(-3deg); transform-origin: left; }
+.abertura__frase { font: 400 clamp(24px, 3vw, 32px)/1.25 var(--script); color: var(--roxo-claro); margin: 18px 0 30px; max-width: 22ch; transform: rotate(-3deg); transform-origin: left; }
 .abertura__foto { position: relative; }
-.abertura__foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.abertura__foto img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 .abertura__foto { transform: rotate(2deg); }
 .abertura__foto .rasgado { border: 6px solid var(--roxo); background: var(--roxo); }
 .abertura__foto::before {

@@ -60,6 +60,12 @@ def main():
     for pre, slug in EXTRAS:
         im = ImageOps.exif_transpose(Image.open(achar(pre))).convert("RGB")
         recorte(im, 4 / 5, .5).save(RAIZ / "assets" / "img" / f"{slug}.webp", quality=82, method=6)
+    # foto dela (perfil do Instagram, só 150 px): ampliada e em duotone roxo para disfarçar a resolução
+    from PIL import ImageFilter
+    f = Image.open(RAIZ.parent / "_ref" / "foto-dela-150.jpg").convert("L")
+    f = ImageOps.autocontrast(f, cutoff=1).resize((900, 900), Image.LANCZOS).filter(ImageFilter.UnsharpMask(3, 60, 2))
+    ImageOps.colorize(f, black=(10, 8, 13), mid=(104, 78, 150), white=(242, 236, 248), midpoint=120).save(
+        RAIZ / "assets" / "img" / "diva.webp", quality=84, method=6)
     js = "// gerado por tools/processar.py: não editar à mão\nwindow.OBRAS = " + json.dumps(dados, ensure_ascii=False, indent=1) + ";\n"
     (RAIZ / "assets" / "js" / "obras.js").write_text(js, encoding="utf-8")
     print(len(dados), "obras")

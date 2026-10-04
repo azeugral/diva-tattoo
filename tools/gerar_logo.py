@@ -1,4 +1,4 @@
-"""Logo da Diva Tattoo: coroa + "Diva" gótico em degradê roxo + "Tattoo" em pincel + brilho.
+"""Logo da Diva Tattoo: "Diva" gótico em degradê roxo + "Tattoo" em pincel + brilho.
 Gera assets/img/logo-diva.webp/png (transparente), favicon, apple-touch e og.jpg.
 Fontes em ../_ref/fontes (UnifrakturCook, Kaushan Script, Grenze Gotisch). Uso: python tools/gerar_logo.py"""
 import math, pathlib
@@ -67,9 +67,7 @@ def logo():
     cheio.paste(g, (0, oy + bx[1]))
     camada.paste(cheio, (0, 0), masc)
     d = ImageDraw.Draw(camada)
-    # coroa sobre o D
     topo = oy + bx[1]
-    coroa(d, (W - tw) // 2 + tw * .5, topo - 34 * S, 112 * S, ROXO_CLARO + (255,), 10 * S)
     # "TATTOO" em pincel, inclinado
     f_tat = fonte("KaushanScript-Regular.ttf", 150 * S)
     t = Image.new("RGBA", (W, 260 * S), (0, 0, 0, 0))
@@ -94,12 +92,10 @@ def icone(tam):
     f = fonte("UnifrakturCook-Bold.ttf", int(s * .86))
     bx = d.textbbox((0, 0), "D", font=f)
     x = (s - (bx[2] - bx[0])) / 2 - bx[0]
-    y = (s - (bx[3] - bx[1])) / 2 - bx[1] + s * .06
+    y = (s - (bx[3] - bx[1])) / 2 - bx[1]
     masc = Image.new("L", (s, s), 0)
     ImageDraw.Draw(masc).text((x, y), "D", font=f, fill=255)
     im.paste(degrade((s, s), ROXO_CLARO, ROXO), (0, 0), masc)
-    if tam >= 64:
-        coroa(d, s / 2, y + bx[1] - s * .02, s * .26, ROXO_CLARO, max(2, int(s * .022)))
     return im.resize((tam, tam), Image.LANCZOS)
 
 def og(lg):
