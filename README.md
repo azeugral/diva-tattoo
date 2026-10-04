@@ -11,7 +11,7 @@ HTML, CSS e JS puros, sem build. Prévia em GitHub Pages, com `noindex` e `robot
 - `assets/obras/`: tattoos em WebP, `-t` = recorte 4:5 800×1000, sem sufixo = inteira até 1600 px.
 - `assets/js/obras.js`: **gerado** por `python tools/processar.py` a partir da lista `OBRAS` do script (lê os originais de `../_ref/Diva`).
 - `assets/js/main.js`: `CONFIG.whatsapp` e `CONFIG.instagram`, grade, filtro por hash, imagem ampliada, orçamento.
-- `tools/gerar_icones.py`: favicon (marcador de estação) e `og.jpg`.
+- `tools/gerar_logo.py`: logo, favicon, apple-touch e `og.jpg`.
 
 A cada deploy que mude CSS/JS, subir `V` em `tools/montar_paginas.py` e remontar.
 
