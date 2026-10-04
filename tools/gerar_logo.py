@@ -85,17 +85,26 @@ def logo():
     camada = camada.crop(caixa)
     return camada.resize((camada.width // S, camada.height // S), Image.LANCZOS)
 
-def icone(tam):
+def icone(tam, fundo=None):
+    """"D" gótico ocupando o quadro todo. Sem fundo = transparente (aba do navegador);
+    o apple-touch leva fundo porque o iOS preenche transparência de preto."""
     S = 8; s = tam * S
-    im = Image.new("RGB", (s, s), TINTA)
-    d = ImageDraw.Draw(im)
-    f = fonte("UnifrakturCook-Bold.ttf", int(s * .86))
-    bx = d.textbbox((0, 0), "D", font=f)
+    margem = .14 if fundo else .02
+    esp = max(1, s // 40)  # contorno roxo escuro: mantém o D legível em aba clara
+    f = fonte("UnifrakturCook-Bold.ttf", s)
+    bx = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), "D", font=f, stroke_width=esp * 0)
+    f = fonte("UnifrakturCook-Bold.ttf", round(s * s * (1 - 2 * margem) / max(bx[2] - bx[0], bx[3] - bx[1]) - 2 * esp))
+    bx = ImageDraw.Draw(Image.new("L", (1, 1))).textbbox((0, 0), "D", font=f)
     x = (s - (bx[2] - bx[0])) / 2 - bx[0]
     y = (s - (bx[3] - bx[1])) / 2 - bx[1]
-    masc = Image.new("L", (s, s), 0)
-    ImageDraw.Draw(masc).text((x, y), "D", font=f, fill=255)
-    im.paste(degrade((s, s), ROXO_CLARO, ROXO), (0, 0), masc)
+    borda = Image.new("L", (s, s), 0)
+    ImageDraw.Draw(borda).text((x, y), "D", font=f, fill=255, stroke_width=esp, stroke_fill=255)
+    m = Image.new("L", (s, s), 0)
+    ImageDraw.Draw(m).text((x, y), "D", font=f, fill=255)
+    im = Image.new("RGBA", (s, s), (fundo + (255,)) if fundo else (0, 0, 0, 0))
+    im.paste(Image.new("RGBA", (s, s), ROXO_ESCURO + (255,)), (0, 0), borda)
+    cheio = Image.new("RGBA", (s, s)); cheio.paste(degrade((s, bx[3] - bx[1]), ROXO_CLARO, ROXO), (0, round(y + bx[1])))
+    im.paste(cheio, (0, 0), m)
     return im.resize((tam, tam), Image.LANCZOS)
 
 def og(lg):
@@ -120,6 +129,8 @@ if __name__ == "__main__":
     lg.save(IMG / "logo-diva.webp", quality=92, method=6)
     print("logo", lg.size)
     icone(32).save(IMG / "favicon-32.png")
-    icone(180).save(IMG / "apple-touch-icon.png")
+    icone(192).save(IMG / "favicon-192.png")
     icone(512).save(IMG / "icone-512.png")
+    icone(180, TINTA).save(IMG / "apple-touch-icon.png")
+    icone(48).save(RAIZ / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
     og(lg)

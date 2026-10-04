@@ -4,7 +4,7 @@ Uso: python tools/montar_paginas.py"""
 import pathlib, re
 
 RAIZ = pathlib.Path(__file__).resolve().parents[1]
-V = 3  # subir a cada deploy que mude CSS/JS
+V = 4  # subir a cada deploy que mude CSS/JS
 ATUAL = ' aria-current="page"'
 MENU = [("index.html", "Início"), ("trabalhos.html", "Trabalhos"), ("cuidados.html", "Cuidados"), ("orcamento.html", "Orçamento")]
 
@@ -21,7 +21,9 @@ CABECA = """<!doctype html>
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="assets/img/og.jpg">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/img/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
