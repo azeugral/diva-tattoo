@@ -4,7 +4,7 @@ Uso: python tools/montar_paginas.py"""
 import pathlib, re
 
 RAIZ = pathlib.Path(__file__).resolve().parents[1]
-V = 1  # subir a cada deploy que mude CSS/JS
+V = 2  # subir a cada deploy que mude CSS/JS
 ATUAL = ' aria-current="page"'
 MENU = [("index.html", "Início"), ("trabalhos.html", "Trabalhos"), ("cuidados.html", "Cuidados"), ("orcamento.html", "Orçamento")]
 
@@ -16,23 +16,22 @@ CABECA = """<!doctype html>
 <title>{titulo}</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0c0d10">
+<meta name="theme-color" content="#0a080d">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{titulo}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="assets/img/og.jpg">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Unbounded:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Kaushan+Script&display=swap">
 <link rel="stylesheet" href="assets/css/estilo.css?v={v}">
 </head>
 <body>
 <header class="topo">
   <div class="wrap topo__in">
-    <a class="marca" href="index.html" aria-label="Diva Tattoo, início"><span class="marca__nome">DIVA</span><span class="marca__sub">Tattoo</span></a>
+    <a class="marca" href="index.html" aria-label="Diva Tattoo, início"><img src="assets/img/logo-diva.webp?v={v}" alt="Diva Tattoo" width="824" height="556"></a>
     <nav aria-label="Principal"><ul class="menu">{menu}</ul></nav>
   </div>
 </header>
@@ -44,7 +43,7 @@ RODAPE = """</main>
   <div class="wrap">
     <div class="rodape__in">
       <div>
-        <a class="marca" href="index.html"><span class="marca__nome">DIVA</span><span class="marca__sub">Tattoo</span></a>
+        <a class="marca" href="index.html"><img src="assets/img/logo-diva.webp?v={v}" alt="Diva Tattoo" width="824" height="556" loading="lazy" style="height:96px"></a>
         <p>Pontilhismo, fineline, blackwork e old school na Praça da Árvore, São Paulo.</p>
         <span class="estacao"><span class="estacao__linha" aria-hidden="true"></span>Praça da Árvore · Linha 1-Azul</span>
       </div>
